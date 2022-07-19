@@ -6,6 +6,8 @@ const commentGetAll = (req, res) => {
         res.status(200).send(result)
     })
     .catch(err => {
-        res.status(400).send(`There is an error in the server while loading comments`)
+        res.status(400).send(`There was an error in the server while loading comments`)
     })
 }
+
+module.exports = {commentGetAll}

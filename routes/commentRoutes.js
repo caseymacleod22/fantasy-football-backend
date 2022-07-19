@@ -1,7 +1,7 @@
-const express = require('exress')
-const projectController = require('../controllers/commentController')
+const express = require('express')
+const commentController = require('../controllers/commentController')
 
-const router = express.Router
+const router = express.Router()
 
 router.get('/', commentController.commentGetAll)
 
