@@ -21,7 +21,7 @@ mongoose.connect(dbURI, {
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-// app.use('/comments', commentRoutes)
+app.use('/comments', commentRoutes)
 
 app.get('/', (req, res) => res.send('Hello'))
 
