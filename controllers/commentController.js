@@ -22,27 +22,14 @@ const comment_get_byID = (req, res) => {
 }
 
 const comment_create = (req, res) => {
-    if(!req.body) {
-        res.status(400).send({message: 'Field cannot be empty.'})
-        return
-    }
-    const comment = new Comment({
-        comment_user: req.body.comment_user,
-        comment_time: null,
-        comment_content: req.body.comment_content,
-    })
-
-    comment
-        .save(comment)
-        .then(data => {
-            // res.send(data)
-            res.redirect('/')
+    const comment = new Comment(req.body);
+    comment.save()
+        .then(result => {
+            res.status(201).send(result);
         })
         .catch(err => {
-            res.status(500).send({
-                message: err.message || "Some error occurred"
-            })
-        })
+            res.status(400).send(err);
+        });
 }
 
 const comment_delete = (req, res) => {

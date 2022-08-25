@@ -21,15 +21,9 @@ mongoose.connect(dbURI, {
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-app.use('/comments', commentRoutes)
+// app.use('/comments', commentRoutes)
 
 app.get('/', (req, res) => res.send('Hello'))
 
-// POST method route
-app.post('/comments', (req, res) => {
-    const user = req.body.comment_user
-    const comment = req.body.comment_content
-    res.send("Name: "+user + "Comment: "+comment)
-})
 
 app.listen(PORT, () => console.log(`Server is running on port: http://localhost:${PORT}`))
